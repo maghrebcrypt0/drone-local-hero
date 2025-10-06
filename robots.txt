@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://maghrebcrypt0.github.io/drone-local-hero/sitemap.xml
