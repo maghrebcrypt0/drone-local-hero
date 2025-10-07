@@ -127,3 +127,35 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   content: ""; width: 6px; height: 6px; border-radius: 50%;
   background: #111; position: absolute; left: 0; top: 0.6em;
 }
+/* --- Compact hero for laptop-height screens (e.g., 1366×768) --- */
+@media (max-height: 900px) and (min-width: 901px) {
+  .hero { min-height: 88vh; }
+  .hero-inner { padding-top: 36px; }
+
+  .mega {
+    /* smaller cap and slightly looser tracking */
+    font-size: clamp(48px, 11vh, 120px);
+    letter-spacing: -0.02em;
+  }
+
+  .card {
+    /* nudge down a bit and cap width */
+    top: clamp(100px, 18vh, 220px);
+    width: clamp(240px, 34vw, 380px);
+  }
+
+  .copy-left, .copy-right {
+    bottom: 90px;
+    font-size: 14px;
+  }
+
+  .bottom-cta { bottom: 26px; }
+}
+
+/* Cleaner bullets so they don’t look heavy next to the big type */
+.copy-left ul { list-style: none; padding-left: 0; }
+.copy-left li { position: relative; padding-left: 16px; }
+.copy-left li::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: #111; position: absolute; left: 0; top: 0.6em;
+}
