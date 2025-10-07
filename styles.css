@@ -94,3 +94,36 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .facts { grid-template-columns: 1fr; }
 }
+/* --- Compact hero for laptop-height screens --- */
+@media (max-height: 900px) and (min-width: 901px) {
+  .hero-inner { padding-top: 36px; }
+
+  /* make the headline smaller so it doesn't crash into the card */
+  .mega {
+    font-size: clamp(48px, 11vh, 120px);
+    letter-spacing: -0.02em;
+  }
+
+  /* pull the card down a bit and cap its width */
+  .card {
+    top: clamp(80px, 18vh, 200px);
+    width: clamp(240px, 34vw, 380px);
+  }
+
+  /* tighten side copy and move it a touch lower */
+  .copy-left, .copy-right {
+    bottom: 90px;
+    font-size: 14px;
+  }
+
+  /* keep the CTA inside the viewport */
+  .bottom-cta { bottom: 26px; }
+}
+
+/* optional: cleaner bullets so they don’t look heavy next to the big type */
+.copy-left ul { list-style: none; padding-left: 0; }
+.copy-left li { position: relative; padding-left: 16px; }
+.copy-left li::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: #111; position: absolute; left: 0; top: 0.6em;
+}
