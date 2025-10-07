@@ -138,3 +138,30 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   .mega { font-size: clamp(40px, 9vh, 100px); }
   .card { top: clamp(110px, 19vh, 230px); }
 }
+/* --- Final compact tweak for short laptop screens --- */
+@media (max-height: 900px) and (min-width: 901px) {
+  .mega {
+    /* smaller cap + lift headline slightly */
+    font-size: clamp(36px, 8.6vh, 96px);
+    transform: translateY(-28px);
+    z-index: -1;            /* keep it behind everything */
+  }
+
+  .card {
+    /* push the card down a touch more so it clears the type */
+    top: clamp(130px, 22vh, 260px);
+  }
+
+  .copy-left, .copy-right {
+    /* move side copy further down to clear "AERIAL" */
+    bottom: 60px;
+    font-size: 14px;
+  }
+
+  .bottom-cta {
+    bottom: 22px;
+  }
+}
+
+/* ensure stacking order is predictable */
+.hero-inner { isolation: isolate; }
