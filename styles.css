@@ -128,3 +128,13 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 
   .bottom-cta { bottom: 24px; }
 }
+/* --- Fix overlap: isolate hero and send the big headline behind --- */
+.hero-inner { isolation: isolate; }  /* makes z-index work predictably */
+
+.mega { z-index: -1; }               /* headline sits behind the card & copy */
+
+/* tighten further on short laptop screens */
+@media (max-height: 900px) and (min-width: 901px) {
+  .mega { font-size: clamp(40px, 9vh, 100px); }
+  .card { top: clamp(110px, 19vh, 230px); }
+}
