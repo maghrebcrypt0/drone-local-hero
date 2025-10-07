@@ -26,11 +26,13 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 
 .mega {
   font-family: 'Archivo Black', Impact, sans-serif;
-  font-size: clamp(54px, 12vw, 164px);
+  font-size: clamp(54px, 12vw, 148px);  /* slightly lower cap */
   line-height: .82;
   letter-spacing: -.03em;
   margin: 40px 0 0 0;
   text-transform: uppercase;
+  position: relative;
+  z-index: 0;  /* headline sits behind */
 }
 
 /* Overlapping card */
@@ -42,6 +44,7 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   background: white; border: 1px solid #e7e7e7;
   border-radius: 10px; box-shadow: 0 22px 60px rgba(0,0,0,.12);
   overflow: hidden; display: grid; place-items: center;
+  z-index: 2;
 }
 .card-img { width: 100%; height: 100%; object-fit: cover; }
 .card-caption { position: absolute; bottom: 10px; left: 12px; right: 12px; color: #222; font-size: 12px; letter-spacing: .04em; background: rgba(255,255,255,.6); padding: 6px 8px; border-radius: 6px; }
@@ -50,6 +53,7 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 .copy-left {
   position: absolute; left: 0; bottom: 120px; width: 40%;
   color: var(--ink); font-size: 15px; line-height: 1.5;
+  z-index: 2;
 }
 .copy-left ul { list-style: none; padding-left: 0; margin: 0 0 6px 0; }
 .copy-left li { position: relative; padding-left: 16px; }
@@ -60,6 +64,7 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 
 .copy-right {
   position: absolute; right: 0; bottom: 120px; width: 36%; text-align: right;
+  z-index: 2;
 }
 .copy-right .label { color: var(--muted); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
 .copy-right .client { font-weight: 700; margin-top: 6px; }
@@ -67,6 +72,7 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 .bottom-cta {
   position: absolute; left: 0; bottom: 40px; display: flex; align-items: center; gap: 10px;
   font-size: 14px; color: var(--muted);
+  z-index: 2;
 }
 .bottom-cta .email { text-decoration: none; color: #111; border-bottom: 1px solid #111; }
 
@@ -102,23 +108,23 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 
 /* --- Compact hero for laptop-height screens (e.g., 1366×768) --- */
 @media (max-height: 900px) and (min-width: 901px) {
-  .hero { min-height: 88vh; }
-  .hero-inner { padding-top: 36px; }
+  .hero { min-height: 86vh; }
+  .hero-inner { padding-top: 32px; }
 
   .mega {
-    font-size: clamp(48px, 11vh, 120px);
+    font-size: clamp(44px, 10vh, 110px);
     letter-spacing: -0.02em;
   }
 
   .card {
-    top: clamp(100px, 18vh, 220px);
+    top: clamp(90px, 17vh, 210px);
     width: clamp(240px, 34vw, 380px);
   }
 
   .copy-left, .copy-right {
-    bottom: 90px;
+    bottom: 88px;
     font-size: 14px;
   }
 
-  .bottom-cta { bottom: 26px; }
+  .bottom-cta { bottom: 24px; }
 }
