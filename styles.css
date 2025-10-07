@@ -1,4 +1,3 @@
-
 :root{
   --bg: #f7f7f7;
   --ink: #0b0b0b;
@@ -47,11 +46,17 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
 .card-img { width: 100%; height: 100%; object-fit: cover; }
 .card-caption { position: absolute; bottom: 10px; left: 12px; right: 12px; color: #222; font-size: 12px; letter-spacing: .04em; background: rgba(255,255,255,.6); padding: 6px 8px; border-radius: 6px; }
 
+/* Side copy */
 .copy-left {
   position: absolute; left: 0; bottom: 120px; width: 40%;
   color: var(--ink); font-size: 15px; line-height: 1.5;
 }
-.copy-left ul { padding-left: 18px; margin: 0 0 6px 0; }
+.copy-left ul { list-style: none; padding-left: 0; margin: 0 0 6px 0; }
+.copy-left li { position: relative; padding-left: 16px; }
+.copy-left li::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: #111; position: absolute; left: 0; top: 0.6em;
+}
 
 .copy-right {
   position: absolute; right: 0; bottom: 120px; width: 36%; text-align: right;
@@ -94,52 +99,18 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   .gallery { grid-template-columns: repeat(2, 1fr); }
   .facts { grid-template-columns: 1fr; }
 }
-/* --- Compact hero for laptop-height screens --- */
-@media (max-height: 900px) and (min-width: 901px) {
-  .hero-inner { padding-top: 36px; }
 
-  /* make the headline smaller so it doesn't crash into the card */
-  .mega {
-    font-size: clamp(48px, 11vh, 120px);
-    letter-spacing: -0.02em;
-  }
-
-  /* pull the card down a bit and cap its width */
-  .card {
-    top: clamp(80px, 18vh, 200px);
-    width: clamp(240px, 34vw, 380px);
-  }
-
-  /* tighten side copy and move it a touch lower */
-  .copy-left, .copy-right {
-    bottom: 90px;
-    font-size: 14px;
-  }
-
-  /* keep the CTA inside the viewport */
-  .bottom-cta { bottom: 26px; }
-}
-
-/* optional: cleaner bullets so they don’t look heavy next to the big type */
-.copy-left ul { list-style: none; padding-left: 0; }
-.copy-left li { position: relative; padding-left: 16px; }
-.copy-left li::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: #111; position: absolute; left: 0; top: 0.6em;
-}
 /* --- Compact hero for laptop-height screens (e.g., 1366×768) --- */
 @media (max-height: 900px) and (min-width: 901px) {
   .hero { min-height: 88vh; }
   .hero-inner { padding-top: 36px; }
 
   .mega {
-    /* smaller cap and slightly looser tracking */
     font-size: clamp(48px, 11vh, 120px);
     letter-spacing: -0.02em;
   }
 
   .card {
-    /* nudge down a bit and cap width */
     top: clamp(100px, 18vh, 220px);
     width: clamp(240px, 34vw, 380px);
   }
@@ -150,12 +121,4 @@ body { font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, Roboto,
   }
 
   .bottom-cta { bottom: 26px; }
-}
-
-/* Cleaner bullets so they don’t look heavy next to the big type */
-.copy-left ul { list-style: none; padding-left: 0; }
-.copy-left li { position: relative; padding-left: 16px; }
-.copy-left li::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: #111; position: absolute; left: 0; top: 0.6em;
 }
